@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+body {
+  background-color: #000;
+  color: white;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.spacer {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px; /* Dá profundidade ao efeito */
+}
+
+.smoke-text {
+  font-size: 8vw;
+  font-weight: 900;
+  display: flex;
+  gap: 10px;
+}
+
+.smoke-text span {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+  transition: all 0.8s ease-out; /* Resposta rápida ao scroll */
+}
+
+  /* Adicione isso ao seu CSS anterior */
+.smoke-text span {
+  display: inline-block;
+  color: #fff;
+  /* Efeito metálico opcional */
+  background: linear-gradient(180deg, #ffffff 0%, #888888 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  will-change: transform, opacity, filter;
+}
+</style>
+
+
+
+
+
+
+<body>
+  <section class="spacer">Role para baixo para ver a mágica</section>
+
+
+
+<div class="container">
+  <h1 class="smoke-text" id="smoke-effect">
+    <span>G</span><span>E</span><span>M</span><span>I</span><span>N</span><span>I</span>
+  </h1>
+</div>
+
+<section class="spacer">O texto sumiu em fumaça!</section>
+    
+</body>
+
+
+
+
+
+<script>
+window.addEventListener('scroll', () => {
+  const text = document.getElementById('smoke-effect');
+  const spans = text.querySelectorAll('span');
+  const rect = text.getBoundingClientRect();
+  
+  // Posição central do texto em relação à janela (de -1 a 1)
+  // 0 significa que o texto está exatamente no centro da tela
+  const windowCenter = window.innerHeight / 2;
+  const textCenter = rect.top + rect.height / 2;
+  const distanceFromCenter = (textCenter - windowCenter) / windowCenter;
+
+  spans.forEach((span, index) => {
+    // Criamos um atraso individual para as letras (efeito cascata)
+    const delay = index * 0.1;
+    const adjustedDistance = Math.abs(distanceFromCenter) - delay;
+    
+    // ZONA DE NITIDEZ: 
+    // Se a distância for menor que 0.2 (perto do centro), a fumaça é 0.
+    // Ajuste o 0.2 para aumentar ou diminuir o tempo que o texto fica "normal".
+    let smokeIntensity = (Math.abs(distanceFromCenter) - 0.2) * 2;
+    
+    // Limita os valores entre 0 e 1
+    smokeIntensity = Math.max(0, Math.min(1, smokeIntensity));
+
+    if (smokeIntensity > 0) {
+      // EFEITO FUMAÇA (Ativo apenas fora do centro)
+      const blur = smokeIntensity * 40;
+      const opacity = 1 - smokeIntensity;
+      const scale = 1 + smokeIntensity * 1.5;
+      const moveY = distanceFromCenter > 0 ? smokeIntensity * 50 : smokeIntensity * -50;
+
+      span.style.filter = `blur(${blur}px)`;
+      span.style.opacity = opacity;
+      span.style.transform = `translateY(${moveY}px) scale(${scale})`;
+    } else {
+      // EFEITO NORMAL (Quando está no centro da tela)
+      span.style.filter = `blur(0px)`;
+      span.style.opacity = "1";
+      span.style.transform = `translateY(0px) scale(1)`;
+    }
+  });
+});
+</script>
+</html>
