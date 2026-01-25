@@ -7,12 +7,13 @@ const scroller = new LocomotiveScroll({
     smooth: true
 })
 
+
 scroller.on("scroll",ScrollTrigger.update)
 
 ScrollTrigger.scrollerProxy(pageContainer, {
     scrollTop(value){
         return arguments.length
-        ? scroller.scrollTop(value, 0, 0)
+        ? scroller.scrollTo(value, 0, 0)
         : scroller.scroll.instance.scroll.y
     },
     getBoundingClientRect(){
@@ -23,10 +24,60 @@ ScrollTrigger.scrollerProxy(pageContainer, {
             height: window.innerHeight,
         }
     },
-    pinType: pageContainer.computedStyleMap.transform ? "transform" : "fixed"
+    pinType: document.querySelector(".container").style.transform ? "transform" : "fixed"
 })
+
 
 window.addEventListener("load", function() {
     let pinWrap = document.querySelector(".pin-wrap")
-    let pinWrapWidth = pinWrap.ffsetWidth;
+    let pinWrapWidth = pinWrap.offsetWidth;
+    let horizontalScrollLength = pinWrapWidth - window.innerWidth;
+
+    gsap.to(".pin-wrap", {
+        scrollTrigger:{
+            scroller: pageContainer,
+            scrub: true,
+            trigger: "#sectionPin",
+            pin: true,
+            start: "top top",
+            end: pinWrapWidth,
+        },
+        x: -horizontalScrollLength,
+    })
+
+    ScrollTrigger.addEventListener("refresh", () => scroller.update())
+
+    ScrollTrigger.refresh();
 })
+
+const tl = gsap.timeline({
+    scrollTrigger:{
+        trigger: ".anima",
+        scroller: pageContainer,
+        start: "top 25%",
+        end: "botton 40%",
+        scrub: 2,
+    }
+})
+
+tl.fromTo(".anima", {scale: 1}, {scale: 2.5})
+tl.fromTo(".anima", {opacity: 1}, {opacity: 0.2})
+
+
+/*carrosel infinito */
+
+const track = document.querySelector('.carousel-track');
+const cards = Array.from(track.children);
+
+// Duplica cada card dinamicamente para garantir o loop
+cards.forEach(card => {
+  const clone = card.cloneNode(true);
+  clone.setAttribute('aria-hidden', true);
+  track.appendChild(clone);
+});
+
+
+
+
+
+

@@ -11,6 +11,34 @@ body {
     padding: 0;
 }
 
+/*background video*/
+
+section{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+section div.bg-sc{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+}
+
+section div.bg-sc video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+section div.box{
+    width: 50%;
+    position: relative;
+    z-index: 1;
+}
+
+/*animação scroll*/
 .main{
     height: 100vh;
     background: black;
@@ -23,11 +51,23 @@ body {
 
 .title{
     color: white;
-    font-size: 34px;
+    font-size: 44px;
+    z-index: 1;
 }
 
 .text{
-    color: white;
+    font-size: 74px;
+    color: rgb(243, 241, 241);
+    z-index: 1;
+}
+
+.text1{
+    text-align: center;
+    width: 550px;
+    padding: 20px 20px;
+    font-size: 24px;
+    color: rgb(243, 241, 241);
+    z-index: 1;
 }
 
 .area{
@@ -58,15 +98,188 @@ img{
     height: 100vh;
     display: flex;
     justify-content: flex-start;
+    
     align-items: center;
     padding: 50px 10vw;
 }
 
 .pin-wrap > *{
-  min-width: 60vw;
+  
+  min-width: 40vw;
   padding: 0 5vw;
 }
 
 .pin-wrap h2{
     font-size: 36px;
 }
+/*seção dos diploma*/
+.portfolio-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.4s ease; /* Transição suave para o hover */
+    cursor: pointer;
+}
+
+/* Ajuste da imagem para ocupar o espaço do container aqua */
+.portfolio-link img {
+    width: 100%;
+    height: auto;
+    max-height: 70vh; /* Impede que a imagem fique alta demais na tela */
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.4s ease;
+}
+
+/* Efeito Hover exclusivo para os itens de portfólio */
+.portfolio-link:hover {
+    filter: brightness(1.2);
+}
+
+.portfolio-link:hover img {
+    transform: scale(1.02); /* Zoom sutil na imagem ao dar hover no bloco */
+}
+
+
+
+
+
+
+
+/*stilo dos icones*/
+button{
+    background-color: rgba(5, 5, 5, 0);
+    border-radius: 50%;
+    border: 0;
+    padding: 10px 10px;
+}
+
+
+i {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    font-size: 40px;
+    display: inline-block; /* Necessário para que o transform funcione corretamente */
+    
+    /* Configuração da Transição */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s ease;
+    will-change: transform; /* Prepara o navegador para a animação */
+}
+
+i:hover {
+    /* Em vez de font-size: 50px, aumentamos 25% do tamanho original (1.25) */
+    transform: scale(1.25); 
+    color: #3900d5; /* Uma mudança de cor sutil aumenta a interatividade */
+}
+/*carrosel infinito*/
+
+.carrosel-infinito {
+  overflow: hidden; /* Esconde os itens que saem da lateral */
+  width: 100%;
+
+  background: #000000;
+  padding: 20px 0;
+  white-space: nowrap; /* Garante que os itens fiquem em uma linha */
+}
+
+.carousel-track {
+  display: flex;
+  width: max-content; /* O trilho se ajusta ao tamanho total dos itens */
+  animation: scroll 20s linear infinite; /* Animação infinita e linear */
+}
+
+.card {
+  width: 200px;
+  height: 100px;
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 8px;
+  flex-shrink: 0; /* Impede que os cards amassem */
+}
+
+/* A Mágica: Move o trilho de 0 até a metade (onde começa a cópia) */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pausar ao passar o mouse (opcional) */
+.carousel-container:hover .carousel-track {
+  animation-play-state: paused;
+}
+
+/*video codigo*/
+.secao-projeto {
+    color: white;
+    background: black;
+    display: flex;
+    align-items: center;      /* Centraliza verticalmente o vídeo e o bloco de texto */
+    justify-content: start; /* Centraliza o conjunto na tela */
+    gap: 60px;               /* Espaço entre o vídeo e o texto */
+    padding: 50px;
+    min-height: 100vh;       /* Ocupa a altura toda da tela */
+}
+
+.video-container {
+    flex: 0 0 450px;         /* Define o tamanho fixo do quadrado do vídeo */
+}
+
+.video-container video {
+    width: 800px;
+    height: 500px;  /* Força o formato quadrado */
+    object-fit: cover;       /* Garante que o vídeo preencha o quadrado */
+    margin-left: 100px;
+    margin-top: -100px;
+}
+
+.texto-container {
+    width: 100px;        /* Limita a largura do texto para ficar elegante */
+    margin-left: 10px;
+    margin-top: -100px;
+    padding: 10px;
+
+}
+
+.texto-container p {
+    padding: 20px;
+    width: 360px;            /* Aumentei a largura para caber frases maiores */
+    font-size: 1.5rem;       /* Texto maior (era 1.1rem) */
+    line-height: 1.4;        /* Ajustado para permitir quebra de linha legível */
+    margin-bottom: 40px;
+    font-weight: 400;
+    white-space: normal;     /* Garante que o texto quebre linhas */
+    word-wrap: break-word;   /* Força a quebra se houver uma palavra muito longa */
+}
+
+/* Responsividade para Celular */
+@media (max-width: 850px) {
+    .secao-projeto {
+        flex-direction: column;
+        text-align: center;
+    }
+    .video-container {
+        flex: 0 0 auto;
+        width: 90%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

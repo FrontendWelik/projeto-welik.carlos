@@ -6,21 +6,31 @@
     <title>Scroll Animations - Sujeito Programador</title>
 		<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css'/>
         <link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	
+
+		
 
 </head>
 <body>
 
-	<div class="container">
+	<div class="container"> 
 
-		<section>
+		<section><!--seção de animação horizontal do texto -->
 			<div class="main" id="main">
+
+				<div class="bg-sc">
+					<video src="video/world.mp4" autoplay loop muted></video>
+				</div>
+				
 					<h1 class="title"
                     data-scroll
                     data-scroll-speed="3"
                     data-scroll-position="top"
                     data-scroll-direction="horizontal"
                     >
-						welik carlos
+						Welik carlos
 					</h1>
 
 					<h2 class="text"
@@ -31,48 +41,116 @@
 						Desenvolvedor Web
 					</h2>
 
-					<p class="text">
-						programador profissional
-					</p>
+					<p class="text1">
+					 formado em analise e desenvolvimento de sistemas 
+					 focado no desenvolvimento web 
+				    </p>
+				<div class="RS"> 
+				  <a href=""><button class="icon anima"><i class="bi bi-instagram "></i></button></a>
+				  <a href=""><button class="icon anima"><i class="bi bi-whatsapp"></i></button></a>
+				  <a href=""><button class="icon anima"><i class="bi bi-linkedin"></i></button></a>
+				  <a href=""><button class="icon anima"><i class="bi bi-github"></i></button></a>
+				  
+			    </div>
+				
+			</div>
+		</section><!--seção de animação horizontal do texto -->
+
+		
+		<section class="carrosel-infinito">
+		<div class="carousel-track">
+			<div class="card" style="font-size: 30px;">Tailwind-Css</div>
+			<div class="card" aria-hidden="true"><i class="fa-brands fa-react"></i></div>
+			<div class="card" style="font-size: 30px;">PHP</div>
+			<div class="card" aria-hidden="true"><i class="fa-brands fa-js"></i></div>
+			<div class="card" style="font-size: 30px;">Next.js</div>
+			<div class="card" aria-hidden="true"><i class="fa-brands fa-html5"></i></div>
+			<div class="card"><i class="fa-brands fa-wordpress"></i></div>
+			<div class="card" aria-hidden="true"><i class="fa-brands fa-css3-alt"></i></div>
+			
+		</div>
+               <!-- div do video-->
+		<div class="secao-projeto">
+			<div class="video-container"
+			data-scroll
+                    data-scroll-speed="2"
+                    data-scroll-position="button"
+                    data-scroll-direction="vertical">
+
+			<video autoplay muted loop>
+			<source src="video/cod.mp4" type="video/mp4">
+			</video>
+			</div>
+			<div class="texto-container" 
+			data-scroll
+                    data-scroll-speed="-1"
+                    data-scroll-position="top 20%"
+                    data-scroll-direction="horizontal">
+			<p>desenvolvedor focado em construir experiências digitais modernas e eficientes..</p>
+					
+			<p>minha trajetória é marcada pela busca constante por transformar ideias complexas em interfaces funcionais</p>
+					
+			<p>Acredito que a tecnologia é a ferramenta ideal para resolver problemas reais e impactar pessoas.</p>
+			</div>
 			</div>
 
 		</section>
+		
+		
 
-        <section id="sectionPin">
+
+
+
+        <section id="sectionPin"><!--seção de animação horizontal-->
             <div class="pin-wrap">
                 <h2>
                     esse vai ser meu portifolio de programção com animações G-sap
                 </h2>
-                <img src="https://img.freepik.com/fotos-gratis/uma-bela-casa-com-elementos-da-natureza_23-2151848749.jpg?t=st=1769199413~exp=1769203013~hmac=bc90f46c271eb49538c3aff25e6967d5116796237c51f724741ea4ab40d42add" alt="">
-                <img src="https://img.freepik.com/fotos-gratis/uma-bela-casa-com-elementos-da-natureza_23-2151848749.jpg?t=st=1769199413~exp=1769203013~hmac=bc90f46c271eb49538c3aff25e6967d5116796237c51f724741ea4ab40d42add" alt="">
-                <img src="https://img.freepik.com/fotos-gratis/uma-bela-casa-com-elementos-da-natureza_23-2151848749.jpg?t=st=1769199413~exp=1769203013~hmac=bc90f46c271eb49538c3aff25e6967d5116796237c51f724741ea4ab40d42add" alt="">
+                <a href="documentos/Diploma-ADS.pdf" target="_blank" class="portfolio-link">
+                <img src="img/Diploma-ADS.webp" alt="Diploma ADS">
+                </a>
+
+                <a href="documentos/CURSO FRONT-END COMPLETO 2.0.pdf" target="_blank" class="portfolio-link">
+                <img src="img/CURSO-FRONT-END-COMPLETO-2.0.webp" alt="CURSO-FRONT-END-COMPLETO-2">
+                </a>
+
+                <a href="documentos/CURSO JAVASCRIPT COMPLETO.pdf" target="_blank" class="portfolio-link">
+                <img src="img/CURSO-JAVASCRIPT-COMPLETO.webp" alt="JAVASCRIPT completo">
+                </a>
+
+				<a href="documentos/CURSO WEB DESIGN EXPRESS.pdf" target="_blank" class="portfolio-link">
+                <img src="img/CURSO-WEB-DESIGN-EXPRESS.webp" alt="Web Designer EXPRESS">
+                </a>
+
             </div>
-        </section>
+        </section><!--seção de animação horizontal-->
+
+		<section> <!-- section Projetos reais-->
+
+		</section>
+
+</div>
+
+
+		
 
 
 
-		<div>
-			<div class="area">
-				<h1>TESTE AREA</h1>
-				<p>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores error laboriosam vero, fugiat vel cumque aperiam consectetur dolorem commodi possimus repudiandae nihil consequuntur id necessitatibus harum obcaecati ratione excepturi voluptatibus.
-				</p>
-			</div>
-
-			<div class="area">
-				<h1>TESTE AREA</h1>
-				<p>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores error laboriosam vero, fugiat vel cumque aperiam consectetur dolorem commodi possimus repudiandae nihil consequuntur id necessitatibus harum obcaecati ratione excepturi voluptatibus.
-				</p>
-			</div>
-		</div>
 
 
-	</div>
 
-		<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-		<script src='https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js'></script>
-    <script src="script.js"></script>
+
+
+
+
+
+
+
+
+		
 </body>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js'></script>
+<script src="script.js"></script>
 </html>
