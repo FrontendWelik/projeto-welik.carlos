@@ -260,6 +260,107 @@ i:hover {
     word-wrap: break-word;   /* Força a quebra se houver uma palavra muito longa */
 }
 
+
+/*seçao projetos reais*/
+
+
+/* Seção projetos reais */
+
+
+.folder-section {
+    position: relative;
+    width: 100%;
+    background: #000;
+}
+
+.folder-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.folder-card {
+    position: absolute;
+    top: 5vh; /* Distância do topo */
+    left: 10%;
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), z-index 0.1s;
+    cursor: pointer;
+}
+.folder-card.active-folder {
+    z-index: 100 !important; /* Garante que ela suba sobre todas */
+    transform: translateY(2vh) !important; /* Sobe um pouquinho mais que a primeira */
+}
+
+/* Estilo das Abas das Pastas */
+.folder-tab {
+    width: fit-content;
+    padding: 10px 30px;
+    background: #1a1a1a;
+    color: #fff;
+    border-radius: 15px 15px 0 0;
+    font-weight: bold;
+    border: 1px solid #333;
+    border-bottom: none;
+}
+/* Efeito de hover para indicar que é clicável */
+.folder-tab:hover {
+    filter: brightness(1.3);
+}
+
+/* Conteúdo da Pasta */
+.folder-content {
+    flex: 1;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 0 20px 20px 20px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0px -10px 30px rgba(0,0,0,0.5);
+}
+
+.item1 { z-index: 10; transform: translateY(0); }
+.item2 { z-index: 20; transform: translateY(100vh); }
+.item3 { z-index: 30; transform: translateY(100vh); }
+.item4 { z-index: 40; transform: translateY(100vh); }
+.item5 { z-index: 50; transform: translateY(100vh); }
+.item6 { z-index: 60; transform: translateY(100vh); }
+
+.item1 .folder-tab { background: #3900d5; }
+.item2 .folder-tab { background: #4a00e0; }
+.item3 .folder-tab { background: #5a00ff; }
+.item4 .folder-tab { background: #5a00ff; }
+.item5 .folder-tab { background: #5a00ff; }
+.item6 .folder-tab { background: #5a00ff; }
+
+.folder-img { flex: 1; }
+.folder-img img { width: 100%; height: 100%; object-fit: cover; }
+.folder-info { flex: 1; padding: 40px; color: white; display: flex; flex-direction: column; justify-content: center; }
+
+.folder-btn {
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    width: fit-content;
+    transition: 0.3s;
+}
+
+
+
+
+
+
+
+
+
 /* Responsividade para Celular */
 @media (max-width: 850px) {
     .secao-projeto {
