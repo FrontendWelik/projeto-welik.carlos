@@ -87,11 +87,11 @@ button{
 
 i{
     text-decoration: none;
-    color: rgb(199, 216, 219);
+    color: rgb(241, 243, 244);
     cursor: pointer;
     font-size: 40px;
     display: inline-block;/* Necessário para que o transform funcione corretamente */
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s ease;
     will-change: transform; /* Prepara o navegador para a animação */
-
+    
 }
