@@ -81,3 +81,45 @@ tl.fromTo(".anima",{opacity: 1},{opacity: 0.2})
 
 /**secao pasta de projetos   */
 
+window.addEventListener("load",function(){
+    const pastas = gsap.utils.toArray(".pasta-card");
+    const pasta2 = document.querySelector(".item2");
+    const pasta3 = document.querySelector(".item3");
+    const pasta4 = document.querySelector(".item4");
+
+    //a timeline para animaçao subir
+    const tlPastas = gsap.timeline({
+        scrollTrigger:{
+            trigger: ".secao-pasta",
+            scroller: pageContainer,
+            start: "top top",
+            end: "+=2000",
+            pin: true,
+            scrub: 1,
+        }
+    });
+
+    tlPastas.to(pasta2, {y: "40px", ease: "none"});
+    tlPastas.to(pasta3, {y: "80px", ease: "none"});
+    tlPastas.to(pasta4, {y: "120px", ease: "none"});
+
+
+    
+    // ação de clique : trazer para o topo 
+
+    pastas.forEach((pasta) => {
+        pasta.addEventListener("click", () => {
+            // Se a pasta clicada já estiver no topo, nós resetamos
+            if (pasta.classList.contains("active-pasta")) {
+                pasta.classList.remove("active-pasta");
+            } else {
+                // Remove o destaque de qualquer outra pasta
+                pastas.forEach(f => f.classList.remove("active-pasta"));
+                // Adiciona o destaque na pasta clicada
+                pasta.classList.add("active-pasta");
+            }
+        });
+    });
+
+    ScrollTrigger.refresh();
+    });
