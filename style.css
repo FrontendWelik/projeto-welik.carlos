@@ -63,19 +63,18 @@ section div.box{
     margin-top: -80px;
     font-size: 44px;
     color: rgb(245, 239, 239);
-    font-family: 'open sans' sans-serif;
     z-index: 1;
 }
 
 .text1{
+    margin-top: -30px;
     text-align: center;
     width: 550px;
     padding: 20px 20px;
     font-size: 24px;
-    color: rgb(230, 207, 3);
+    color: rgb(250, 250, 248);
     z-index: 1;
 }
-
 
 /*icones*/
 button{
@@ -93,5 +92,255 @@ i{
     display: inline-block;/* Necessário para que o transform funcione corretamente */
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s ease;
     will-change: transform; /* Prepara o navegador para a animação */
-    
+
+
+}
+
+i:hover{
+    /*vamos aumentar em 25% o tamanho origial dos icones*/
+    transform: scale(1.25);
+    color: #68c7d4;
+}
+
+/* carrossel infinito*/
+
+.carrossel-infinito{
+    overflow: hidden;/* esconde os itens que saem da lateral */
+    width: 100%;
+
+    background: #000000;
+    padding: 20px 0;
+    white-space: nowrap;/*garante que os itens fiquem em uma linha*/
+}
+
+.carrossel-track{
+     display: flex;
+     width: max-content;/* o trilho se ajusta ao tamanho total dos itens */
+     animation: scroll 20s linear infinite;/*animação linear*/
+}
+
+.card{
+    width: 200px;
+    height: 100px;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius:8px;
+    flex-shrink:0 ;/*impede qie os cards amassem */
+}
+
+/*A magica : move o trilho de 0 ate a metade (onde começa a copia )*/
+@keyframes scroll{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-50%);
+    }
+}
+
+/*pausar ao passar o mouse*/
+.carross-container:hover .carrosel-track{
+    animation-play-state: paused;
+}
+
+/*secao do video e texto*/
+.secao-projeto{
+    color: white;
+    background: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 60px;
+    padding: 50px;
+    min-height: 100vh;
+
+}
+
+.video-container{
+    flex: 0 0 450px;
+}
+
+.video-container video{
+    width: 700px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 40px;
+    margin-left: 100px;
+    margin-top: -100px;
+}
+
+.texto-container{
+    width: 150px;
+    margin-left: 80px;
+    margin-top: -220px;
+    padding: 10px;
+}
+
+.texto-container p{
+    padding: 10px;
+    width: 500px;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    font-weight: 400;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+/*secao animação horizontal */
+
+
+.area{
+    height: 700px;
+}
+
+section:not(#sectionPin){
+  min-height: 100vh;
+  width: 100%;
+}
+
+.img{
+    height: 50vh;
+    width: auto;
+    object-fit: cover;
+}
+
+#sectionPin{
+    height: 100vh;
+    overflow: hidden;
+    background: black;
+    color: white;
+    left: 0;
+    display: flex;
+}
+
+.pin-wrap{
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 50px 10vw;
+}
+
+.pin-wrap > *{
+    min-width: 40vw;
+    padding: 0 5vw;
+}
+
+.pin-wrap h2{
+    font-size: 36px;
+}
+
+.portifolio-link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+/*ajustar imagem para caber no espaço do container*/
+.portifolio-link img{
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.4s ease;
+}
+
+/*efeito hover*/
+.portifolio-link:hover{
+    filter: brightness(1.2);
+}
+
+.portifolio-link:hover img{
+    transform: scale(1.02);
+}
+
+/*secao dos projetos*/
+.secao-pasta{
+    position: relative;
+    width: 100%;
+    background: #000;
+}
+
+.pasta-container{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.pasta-card{
+    position: absolute;
+    top: 5vh;
+    left: 10%;
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),z-index 0.1s;
+    cursor: pointer;
+}
+.pasta-card.active-pasta{
+    z-index: 100 !important;
+    transform: translateY(2vh) !important;
+}
+
+/*estilo das abas da pastas */
+.pasta-tab{
+    width: fit-content;
+    padding: 10px 30px;
+    background: #1a1a1a;
+    color: #fff;
+    border-radius: 15px 15px 0 0;
+    font-weight: bold;
+    border: 1px solid #333;
+    border-bottom: none;
+}
+
+.pasta-tab:hover{
+    filter: brightness(1.3);
+}
+
+/*conteudo da pasta*/
+.pasta-content{
+    flex: 1;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 0 20px 20px 20px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0px -10px 30px rgba(0,0,0,0.5);
+}
+
+.item1{z-index: 10; transform: translateY(0);}
+.item2{z-index: 20; transform: translateY(100vh);}
+.item3{z-index: 30; transform: translateY(100vh);}
+.item4{z-index: 40; transform: translateY(100vh);}
+
+.item1 .pasta-tab{background: #3900d5;}
+.item2 .pasta-tab{background: #3900d5;}
+.item3 .pasta-tab{background: #3900d5;}
+.item4 .pasta-tab{background: #3900d5;}
+
+.pasta-img{flex: 1;}
+.pasta-img img{width: 100%; height: 100%; object-fit: cover;}
+.pasta-info{flex: 1; padding: 40px; color: white; display: flex; flex-direction: column; justify-content: center;}
+
+.pasta-btn{
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    width: fit-content;
+    transition: 0.3s;
 }
